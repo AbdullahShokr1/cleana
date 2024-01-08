@@ -5,47 +5,38 @@
  * @package Cleana
  */
 
-namespace AQUILA_THEME\Inc;
+namespace CLEANA_THEME\Inc;
 
-use AQUILA_THEME\Inc\Traits\Singleton;
+use CLEANA_THEME\Inc\Traits\Singleton;
 
-class AQUILA_THEME {
+class CLEANA_THEME {
 	use Singleton;
 
 	protected function __construct() {
-
-		// Load class.
+		//load Classes
 		Assets::get_instance();
 		Menus::get_instance();
 		Meta_Boxes::get_instance();
-		Sidebars::get_instance();
-		Blocks::get_instance();
-		Block_Patterns::get_instance();
-		Loadmore_Posts::get_instance();
-		Loadmore_Single::get_instance();
-		Register_Post_Types::get_instance();
-		Register_Taxonomies::get_instance();
-		Archive_Settings::get_instance();
+		//Sidebars::get_instance();
+		//Blocks::get_instance();
+		//Block_Patterns::get_instance();
+		//Loadmore_Posts::get_instance();
+		//Loadmore_Single::get_instance();
+		//Register_Post_Types::get_instance();
+		//Register_Taxonomies::get_instance();
+		//Archive_Settings::get_instance();
 
 		$this->setup_hooks();
 	}
 
 	protected function setup_hooks() {
-
 		/**
 		 * Actions.
 		 */
 		add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
-
 	}
 
-	/**
-	 * Setup theme.
-	 *
-	 * @return void
-	 */
-	public function setup_theme() {
-
+	public function setup_theme(){
 		/**
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
@@ -80,14 +71,14 @@ class AQUILA_THEME {
 		 * @see Enable Custom Backgrounds
 		 * @link https://developer.wordpress.org/themes/functionality/custom-backgrounds/#enable-custom-backgrounds
 		 */
-		add_theme_support(
-			'custom-background',
-			[
-				'default-color' => 'ffffff',
-				'default-image' => '',
-				'default-repeat' => 'no-repeat',
-			]
-		);
+		// add_theme_support(
+		// 	'custom-background',
+		// 	[
+		// 		'default-color' => 'ffffff',
+		// 		'default-image' => '',
+		// 		'default-repeat' => 'no-repeat',
+		// 	]
+		// );
 
 		/**
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -168,6 +159,7 @@ class AQUILA_THEME {
 		 * @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles
 		 */
 		add_theme_support( 'editor-styles' );
+		
 		/**
 		 *
 		 * Path to our custom editor style.
@@ -181,10 +173,10 @@ class AQUILA_THEME {
 		 * @see add_editor_style(
 		 * @link https://developer.wordpress.org/reference/functions/add_editor_style/
 		 */
-		add_editor_style( 'assets/build/css/editor.css' );
+		add_editor_style( 'assets/css/editor.css' );
 
-		// Remove the core block patterns
-		remove_theme_support( 'core-block-patterns' );
+		// // Remove the core block patterns
+		// remove_theme_support( 'core-block-patterns' );
 
 		/**
 		 * Set the maximum allowed width for any content in the theme,
@@ -198,5 +190,4 @@ class AQUILA_THEME {
 			$content_width = 1240;
 		}
 	}
-
 }
