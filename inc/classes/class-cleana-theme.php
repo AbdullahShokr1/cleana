@@ -95,7 +95,7 @@ class CLEANA_THEME {
 		/**
 		 * Register image sizes.
 		 */
-		add_image_size( 'featured-thumbnail', 350, 233, true );
+		add_image_size( 'featured-thumbnail', 450, 232 ,true );
 
 
 		// Add theme support for selective refresh for widgets.

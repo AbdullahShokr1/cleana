@@ -8,55 +8,38 @@
 <?php get_header();?>
 <!--Start Main Section-->
 <main>
-<div id="primary">
-		<main id="main" class="site-main mt-5" role="main">
-			<?php
-			if ( have_posts() ) :
-				?>
-				<div class="container">
-					<?php
-					if ( is_home() && ! is_front_page() ) {
-						?>
-						<header class="mb-5">
-							<h1 class="page-title screen-reader-text">
-								<?php single_post_title(); ?>
-							</h1>
-						</header>
-						<?php
-					}
-					?>
-
-					<div class="row">
-						<?php
-						$index         = 0;
-						$no_of_columns = 3;
-
-						while ( have_posts() ) : the_post();
-
-							if ( 0 === $index % $no_of_columns ) {
-								?>
-								<section class="grid grid-cols-1 xl:grid-cols-3 gap-y-10 gap-x-6 items-start p-8">
-								<?php
-							}
-                            get_template_part( 'template-parts/content/content' );
-							$index ++;
-							if ( 0 !== $index && 0 === $index % $no_of_columns ) {
-								?>
-								</section>
-								<?php
-							}
-
-						endwhile;
-						?>
-					</div>
-				</div>
-			<?php 
-			else :
-				get_template_part( 'template-parts/content/content-none.php' );
-			endif;
-			?>
-		</main>
-	</div>
+<?php
+if ( have_posts() ) :
+	?>
+	<section class=" mx-auto p-5 sm:p-10 md:p-16 bg-blue-50 dark:bg-slate-800">
+		<?php
+		if ( is_home() && ! is_front_page() ) {
+		?>
+		<section class="text-center">
+			<h1 class="page-title text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
+				<?php single_post_title(); ?>
+			</h1>
+		</section>
+		<?php
+		}
+		?>
+		<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+		<?php
+		$index         = 0;
+		$no_of_columns = 3;
+		while ( have_posts() ) : the_post();
+			get_template_part( 'template-parts/content/content-blog' );
+			$index ++;
+		endwhile;
+		?>
+		</section>
+	</section>
+<?php 
+else :
+	get_template_part( 'template-parts/content/content-none.php' );
+endif;
+cleana_pagination();
+?>
 </main>
 <!--End MAin Section-->
 <?php get_footer()?>

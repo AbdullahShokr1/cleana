@@ -16,7 +16,7 @@
 <body dir="rtl" <?php body_class();?>>
     <?php wp_body_open()?>
     <!--Start Header Section-->
-    <header class="bg-white dark:bg-gray-900 dark:border-gray-700">
+    <header class="h-srceen sticky top-0 z-40 flex-none mx-auto w-full border-gray-50/0 transition-[opacity] ease-in-out scroll" data-aw-sticky-header>
         <!--Start NavBar-->
         <?php get_template_part('template-parts/header/nav');?>
         <!--End NavBar-->
