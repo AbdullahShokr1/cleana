@@ -35,6 +35,7 @@ class Sidebars {
 		 */
 		add_action( 'widgets_init', [ $this, 'register_sidebars' ] );
 		add_action( 'widgets_init', [ $this, 'register_clock_widget' ] );
+		add_action( 'widgets_init', [ $this, 'register_category_widget' ] );
 
 	}
 
@@ -50,9 +51,9 @@ class Sidebars {
 				'name'          => esc_html__( 'Sidebar', 'cleana' ),
 				'id'            => 'sidebar-1',
 				'description'   => '',
-				'before_widget' => '<section id="%1$s" class="widget widget-sidebar %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h3 class="widget-title">',
+				'before_widget' => '<section id="sidebar-%1$s" class="widget widget-sidebar cell column %2$s"><section class="mb-4 dark:bg-slate-900 bg-blue-200 px-4 py-6 rounded-xl border border-pink-500/10 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10">',
+				'after_widget'  => '</section></section>',
+				'before_title'  => '<h3 class=" widget-title text-lg font-bold mb-2">',
 				'after_title'   => '</h3>',
 			]
 		);
@@ -73,6 +74,9 @@ class Sidebars {
 
 	public function register_clock_widget() {
 		register_widget( 'CLEANA_THEME\Inc\Clock_Widget' );
+	}
+	public function register_category_widget() {
+		register_widget( 'CLEANA_THEME\Inc\Category_Widget' );
 	}
 
 }

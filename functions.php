@@ -72,3 +72,10 @@ function save_category_image($term_id, $tt_id) {
 		update_term_meta($term_id, 'category_image_id', '');
 	}
 }
+
+
+
+
+
+
+
