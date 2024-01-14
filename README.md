@@ -93,14 +93,14 @@ Directory Structure
 .
 ├── README.md
 ├── assets
-│   ├── main.js
 │   └── src
-│       └── library
-│           ├── css
-│           │   ├── bootstrap-grid.min.css
-│           │   └── bootstrap.min.css
-│           └── js
-│               └── bootstrap.min.js
+│       ├── css
+│       │   ├── editor.min.css
+│       │   └── main.min.css
+|       ├── images
+│       └── js
+|           ├── main.css
+│           └── flowbite.min.js
 ├── demo
 │   ├── banner.png
 │   ├── blog-page.png
