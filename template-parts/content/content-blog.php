@@ -12,8 +12,7 @@
  $the_post_id   = get_the_ID();
  $article_terms = wp_get_post_terms( $the_post_id, [ 'category', 'post_tag' ] );
 ?>
-
-<!-- CARD 1 -->
+<!-- CARD -->
 <section class="rounded overflow-hidden shadow-lg flex flex-col ">
 	<a href="<?php echo esc_url( get_permalink() ); ?>"></a>
 	<section class="relative">
@@ -85,8 +84,3 @@
 		</span>
 	</section>
 </section>
-
-
-
-
-    

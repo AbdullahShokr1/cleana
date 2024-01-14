@@ -9,6 +9,7 @@
 <!--Start Main Section-->
 <main>
 <?php
+//get_template_part( 'template-parts/components/cateories' );
 if ( have_posts() ) :
 	?>
 	<section class=" mx-auto p-5 sm:p-10 md:p-16 bg-blue-50 dark:bg-slate-800">
