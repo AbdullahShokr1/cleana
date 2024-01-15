@@ -10,6 +10,9 @@ if ( ! defined( 'CLEANA_DIR_PATH' ) ) {
 if ( ! defined( 'CLEANA_DIR_URL' ) ) {
 	define( 'CLEANA_DIR_URL', untrailingslashit( get_template_directory_uri() ) );
 }
+if ( ! defined( 'CLEANA_BUILD_IMG_URI' ) ) {
+	define( 'CLEANA_BUILD_IMG_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/src/images' );
+}
 
 
 require_once CLEANA_DIR_PATH . '/inc/helpers/autoloader.php';

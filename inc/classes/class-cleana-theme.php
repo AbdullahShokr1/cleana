@@ -19,7 +19,7 @@ class CLEANA_THEME {
 		Meta_Boxes::get_instance();
 		Sidebars::get_instance();
 		//Blocks::get_instance();
-		//Block_Patterns::get_instance();
+		Block_Patterns::get_instance();
 		//Loadmore_Posts::get_instance();
 		//Loadmore_Single::get_instance();
 		//Register_Post_Types::get_instance();
@@ -175,8 +175,8 @@ class CLEANA_THEME {
 		 */
 		add_editor_style( 'assets/css/editor.css' );
 
-		// // Remove the core block patterns
-		// remove_theme_support( 'core-block-patterns' );
+		// Remove the core block patterns
+		remove_theme_support( 'core-block-patterns' );
 
 		/**
 		 * Set the maximum allowed width for any content in the theme,

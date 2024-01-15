@@ -7,7 +7,10 @@
  */
 
 $the_post_id   = get_the_ID();
-$category =  wp_get_post_terms( $the_post_id, [ 'category', 'post_tag' ] )[0];
+$category =  wp_get_post_terms( $the_post_id, [ 'category', 'post_tag' ] );
+if($category){
+    $category =  wp_get_post_terms( $the_post_id, [ 'category', 'post_tag' ] )[0];
+}
 ?>
 
 <section class="mx-auto px-4 py-2 pb-4 flex justify-center flex-wrap dark:bg-slate-900 bg-blue-200">
