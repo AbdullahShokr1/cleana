@@ -9,6 +9,7 @@
 <!--Start Main Section-->
 <main>
 <?php
+get_template_part( 'template-parts/components/posts-carousel' );
 get_template_part( 'template-parts/components/cateories' );
 if ( have_posts() ) :
 	?>

@@ -2,13 +2,13 @@
 /**
  * Two Columns Block Patterns Template
  *
- * @package aquila
+ * @package cleana
  */
 
 ?>
 
-<!-- wp:group {"align":"wide","className":"aquila-two-columns-pattern","backgroundColor":"black","textColor":"cyan-bluish-gray"} -->
-<div class="wp-block-group alignwide aquila-two-columns-pattern has-cyan-bluish-gray-color has-black-background-color has-text-color has-background"><div class="wp-block-group__inner-container"><!-- wp:columns -->
+<!-- wp:group {"align":"wide","className":"cleana-two-columns-pattern","backgroundColor":"black","textColor":"cyan-bluish-gray"} -->
+<div class="wp-block-group alignwide cleana-two-columns-pattern has-cyan-bluish-gray-color has-black-background-color has-text-color has-background"><div class="wp-block-group__inner-container"><!-- wp:columns -->
 		<div class="wp-block-columns"><!-- wp:column -->
 			<div class="wp-block-column"><!-- wp:heading {"textColor":"luminous-vivid-amber"} -->
 				<h2 class="has-luminous-vivid-amber-color has-text-color">Heading One</h2>
@@ -28,5 +28,7 @@
 				<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
 				<!-- /wp:paragraph --></div>
 			<!-- /wp:column --></div>
-		<!-- /wp:columns --></div></div>
+		<!-- /wp:columns -->
+    </div>
+</div>
 <!-- /wp:group -->

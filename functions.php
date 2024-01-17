@@ -13,6 +13,13 @@ if ( ! defined( 'CLEANA_DIR_URL' ) ) {
 if ( ! defined( 'CLEANA_BUILD_IMG_URI' ) ) {
 	define( 'CLEANA_BUILD_IMG_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/src/images' );
 }
+if ( ! defined( 'CLEANA_ARCHIVE_POST_PER_PAGE' ) ) {
+	define( 'CLEANA_ARCHIVE_POST_PER_PAGE', 9 );
+}
+
+if ( ! defined( 'CLEANA_SEARCH_RESULTS_POST_PER_PAGE' ) ) {
+	define( 'CLEANA_SEARCH_RESULTS_POST_PER_PAGE', 9 );
+}
 
 
 require_once CLEANA_DIR_PATH . '/inc/helpers/autoloader.php';
