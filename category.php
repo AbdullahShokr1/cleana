@@ -1,6 +1,6 @@
 <?php
 /**
- * Archive Page template file.
+ * Category Page template file.
  *
  * @package Cleana
  */

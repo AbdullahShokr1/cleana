@@ -161,7 +161,7 @@ function cleana_pagination() {
 
 	$allowed_tags = [
 		'span' => [
-			'class' => []
+			'class' => ["fdgfdgd"]
 		],
 		'a' => [
 			'class' => [],

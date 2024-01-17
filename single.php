@@ -39,6 +39,7 @@ get_header();
 			?>
 			<section class="prev-link"><?php previous_post_link(); ?></section>
 			<section class="next-link"><?php next_post_link(); ?></section>
+
 		</section>
 	</section>
 	<?php get_sidebar()?>

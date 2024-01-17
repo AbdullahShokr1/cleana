@@ -8,42 +8,36 @@
 
 $author_email = get_the_author_meta( 'user_email' );
 $has_avatar   = cleana_has_gravatar( $author_email );
-$avatar       = get_avatar( $author_email, 240, '', '', [ 'class'   => 'rounded-circle', 'default' => '404' ] );
+$avatar       = get_avatar( $author_email, 240, '', '', [ 'class'   => 'rounded-circle w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0', 'default' => '404' ] );
 
 ?>
-<header class="page-header row mb-4">
-	<!--author-col-one-->
-	<div class="author-col-one mb-3 col-lg-3 col-md-3 col-sm-12">
-		<div id="author-avatar" class="author-avatar d-flex align-items-start">
+<section class="col-span-4 sm:col-span-3">
+	<section class=" shadow rounded-lg p-6 dark:bg-slate-900 bg-blue-200">
+		<section class="flex flex-col items-center">
 			<?php
-			if ( ! empty( $has_avatar ) ) {
-				echo wp_kses_post( $avatar );
-			} else {
-				printf(
-					'<span id="author-firstname" class="d-none">%1$s</span><span id="author-lastname" class="d-none">%2$s</span><div id="author-profile-img" style="width: 230px; height: 230px;" class="rounded-circle bg-secondary position-relative"><span class="h1 text-white inset-center"></span></div>',
-					esc_html( get_the_author_meta( 'first_name' ) ),
-					esc_html( get_the_author_meta( 'last_name' ) )
-				);
-			}
+				if ( ! empty( $has_avatar ) ) {
+					echo wp_kses_post( $avatar );
+				} else {
+					echo "<img src='". esc_url( CLEANA_BUILD_IMG_URI . '/user.png' )."' class='w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0'></img>";
+				}
 			?>
-		</div><!-- #author-avatar -->
-	</div>
-	<!--author-col-two-->
-	<div class="author-col-two text-left col-lg-9 col-md-9 col-sm-12 ml-0 pl-3">
-		<?php
-		if ( ! empty( get_the_author() ) ) {
-			printf(
-				'<h1 class="inline-block uppercase text-26px leading-30px mt-0 mb-3">%s</h1>',
-				get_the_author()
-			);
-		}
-		// If a user has filled out their description, show a bio on their entries.
-		if ( get_the_author_meta( 'description' ) ) : ?>
-			<div id="author-info">
-				<div id="author-description">
-					<p class="text-left md:text-left"><?php the_author_meta( 'description' ); ?></p>
-				</div>
-			</div>
-		<?php endif; ?>
-	</div>
-</header>
+			<h1 class="text-xl font-bold"><?php echo esc_html( get_the_author_meta( 'display_name' )); ?></h1>
+			<?php
+			// If a user has filled out their description, show a bio on their entries.
+			if ( get_the_author_meta( 'description' ) ) : ?>
+				<p class="text-gray-700 dark:text-gray-400"><?php  echo esc_html( get_the_author_meta( 'description' ));?></p>
+			<?php endif; 
+			if ( get_the_author_meta( 'user_url' ) ) : ?>
+				<section class="mt-6 flex flex-wrap gap-4 justify-center">
+					<a href="<?php  echo esc_html( get_the_author_meta( 'user_url' ));?>" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" target="_blank"><?php _e("الموقع الالكتروني","cleana")?></a>
+				</section>
+			<?php endif;
+			?>		
+		</section>
+		<hr class="my-6 border-t border-gray-300">
+	</section>
+</section>
+
+
+
+

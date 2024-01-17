@@ -40,8 +40,10 @@ if ( have_posts() ) :
 else :
 	get_template_part( 'template-parts/content/content-none.php' );
 endif;
-cleana_pagination();
 ?>
+
+<?php cleana_pagination();?>
+
 </main>
 <!--End MAin Section-->
 <?php get_footer()?>

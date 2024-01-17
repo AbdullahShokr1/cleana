@@ -15,51 +15,59 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
+<?php
+function my_custom_comment_callback( $comment, $args, $depth ) {
+  $GLOBALS['comment'] = $comment;
+  ?>
+  <div class="flex">
+    <div class="flex-shrink-0 mr-3">
+      <img class="mt-2 rounded-full w-8 h-8 sm:w-10 sm:h-10" src="<?php echo get_avatar_url( $comment, 80 ); ?>" alt="">
+    </div>
+    <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+      <strong><?php comment_author(); ?></strong><br>
+	  <span class="text-xs text-gray-400"><?php comment_date(); ?></span>
+      <p class="text-sm"><?php comment_text(); ?></p>
+      <?php if ( $comment->comment_approved == '0' ) : ?>
+        <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+      <?php endif; ?>
+    </div>
+  </div>
+  <?php
+}
 
-<div id="comments" class="comments-area">
+if ( have_comments() ) :
+?>
+<div class="antialiased mx-auto max-w-screen-sm">
+  <h3 class="mb-4 text-lg font-semibold text-gray-900"><?php echo _e('التعليقات',"cleana")." ("; echo number_format_i18n( get_comments_number()).")";?></h3>
+  <div class="space-y-4">
+    <?php
+    wp_list_comments( array(
+      'style'      => 'div',
+      'callback'   => 'my_custom_comment_callback',
+      'avatar_size' => 80,
+    ) );
+    ?>
+  </div>
+</div>
+<?php
+endif;
 
-	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-			printf(
-				_nx(
-					'One thought on "%2$s"',
-					'%1$s thoughts on "%2$s"',
-					get_comments_number(),
-					'comments title',
-					'cleana'
-				),
-				number_format_i18n( get_comments_number() ),
-				'<span>' . get_the_title() . '</span>'
-			);
-			?>
-		</h2>
+?>
+<?php comment_form(); ?>
 
-		<ol class="comment-list">
-			<?php
-			wp_list_comments( array(
-				'style'       => 'ol',
-				'short_ping'  => true,
-				'avatar_size' => 74,
-			) );
-			?>
-		</ol><!-- .comment-list -->
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-			<nav class="navigation comment-navigation" role="navigation">
 
-				<h1 class="screen-reader-text section-heading"><?php _e( 'Comment navigation', 'cleana' ); ?></h1>
-				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'cleana' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'cleana' ) ); ?></div>
-			</nav><!-- .comment-navigation -->
-		<?php endif; // Check for comment navigation ?>
 
-		<?php if ( ! comments_open() && get_comments_number() ) : ?>
-			<p class="no-comments"><?php _e( 'Comments are closed.', 'cleana' ); ?></p>
-		<?php endif; ?>
 
-	<?php endif; // have_comments() ?>
 
-	<?php comment_form(); ?>
 
-</div><!-- #comments -->
+
+
+
+
+
+
+
+
+
+

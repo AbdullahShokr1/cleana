@@ -25,6 +25,7 @@ class CLEANA_THEME {
 		//Register_Post_Types::get_instance();
 		//Register_Taxonomies::get_instance();
 		Archive_Settings::get_instance();
+		Pagination::get_instance();
 
 		$this->setup_hooks();
 	}

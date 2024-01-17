@@ -9,7 +9,7 @@
 
 <section class="no-result not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'cleana' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'لا توجد اي مقالات حتي الان.', 'cleana' ); ?></h1>
 	</header>
 
 	<section class="page-content">
@@ -20,7 +20,7 @@
 					<?php
 						printf(
 								wp_kses(
-										__( 'Ready to publish your first post? <a href="%s">Get started here</a>', 'cleana' ),
+										__( 'جاهز لنشر أول منشوراتك؟ <a href="%s">اضغط هنا</a>', 'cleana' ),
 									[
 											'a' => [
 													'href' => []
@@ -34,12 +34,12 @@
 			<?php
 			} elseif ( is_search() ) {
 				?>
-				<p><?php esc_html_e( 'Sorry but nothing matched your search item. Please try again with some different keywords', 'cleana'  ); ?></p>
+				<p><?php esc_html_e( 'آسف ولكن لا شيء يطابق عنصر البحث الخاص بك. أرجو المحاولة مرة أخرى بإستخدام كلمات أخرى', 'cleana'  ); ?></p>
 				<?php
 				get_search_form();
 			} else {
 				?>
-				<p><?php esc_html_e( 'It seems that we cannot find what you are looking for . Perhaps search can help', 'cleana'  ); ?></p>
+				<p><?php esc_html_e( 'يبدو أننا لا نستطيع العثور على ما تبحث عنه. ربما البحث يمكن أن يساعد', 'cleana'  ); ?></p>
 				<?php
 				get_search_form();
 			}
