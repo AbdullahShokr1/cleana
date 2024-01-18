@@ -160,21 +160,21 @@ function cleana_excerpt_more( $more = '' ) {
 function cleana_pagination() {
 
 	$allowed_tags = [
-		'span' => [
+		'li' => [
 			'class' => ["fdgfdgd"]
 		],
 		'a' => [
-			'class' => [],
+			'class' => ["flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"],
 			'href' => [],
 		]
 	];
 
 	$args = [
-		'before_page_number' => '<span class="btn border border-secondary mr-2 mb-2">',
-		'after_page_number' => '</span>',
+		'before_page_number' => '<li>',
+		'after_page_number' => '</li>',
 	];
 
-	printf( '<nav class="cleana-pagination clearfix">%s</nav>', wp_kses( paginate_links( $args ), $allowed_tags ) );
+	printf( '<nav><ul class="flex items-center -space-x-px h-8 text-sm">%s</ul></nav>', wp_kses( paginate_links( $args ), $allowed_tags ) );
 }
 
 /**
@@ -198,7 +198,7 @@ function cleana_the_post_pagination( $current_page_no, $posts_per_page, $article
 	$format = ! empty( $is_query_param_structure ) ? '?page=%#%' : 'page/%#%';
 
 	?>
-	<div class="mt-0 md:mt-10 mb-10 lg:my-5 flex items-center justify-end posts-navigation">
+	<section class="dark:bg-gray-800 bg-blue-50 text-black dark:text-white mt-0 md:mt-10 lg:my-5 flex items-center justify-end posts-navigation">
 		<?php
 		if ( 1 < $total_pages && !empty( $first_page_url ) ) {
 			printf(
@@ -212,7 +212,7 @@ function cleana_the_post_pagination( $current_page_no, $posts_per_page, $article
 
 		// First Page
 		if ( 1 !== $current_page_no && ! empty( $first_page_url ) ) {
-			printf( '<a class="first-pagination-link btn border border-secondary mr-2" href="%1$s" title="first-pagination-link">%2$s</a>', esc_url( $first_page_url ), __( 'First', 'cleana' ) );
+			printf( '<a class="flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="%1$s" title="first-pagination-link">%2$s</a>', esc_url( $first_page_url ), __( 'First', 'cleana' ) );
 		}
 
 		echo paginate_links( [
@@ -227,11 +227,11 @@ function cleana_the_post_pagination( $current_page_no, $posts_per_page, $article
 		// Last Page
 		if ( $current_page_no < $total_pages && !empty( $last_page_url ) ) {
 
-			printf( '<a class="last-pagination-link btn border border-secondary ml-2" href="%1$s" title="last-pagination-link">%2$s</a>', esc_url( $last_page_url ), __( 'Last', 'cleana' ) );
+			printf( '<a class="flex items-center justify-center px-4 h-10 ms-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="%1$s" title="last-pagination-link">%2$s</a>', esc_url( $last_page_url ), __( 'Last', 'cleana' ) );
 		}
 
 		?>
-	</div>
+	</section>
 	<?php
 }
 

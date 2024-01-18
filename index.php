@@ -4,6 +4,9 @@
 *
 * @package Cleana
 */
+// Exclude category with ID 12 (replace with your category ID)
+$category_id = get_cat_ID(CLEANA_NO_CATEGORY);
+$query = new WP_Query( array( 'category__not_in' => array( $category_id ) ) );
 ?>
 <?php get_header();?>
 <!--Start Main Section-->
@@ -33,17 +36,22 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/content/content-blog' );
 			$index ++;
 		endwhile;
+		
+		if ( $query->have_posts() ) :
+			while ( $query->have_posts() ) : $query->the_post();
+				get_template_part( 'template-parts/content/content-blog' );
+			endwhile;
+		  endif;
+		  wp_reset_postdata();
 		?>
+		
 		</section>
 	</section>
 <?php 
 else :
-	get_template_part( 'template-parts/content/content-none.php' );
+	get_template_part( 'template-parts/content/content-none' );
 endif;
 ?>
-
-<?php cleana_pagination();?>
-
 </main>
 <!--End MAin Section-->
 <?php get_footer()?>

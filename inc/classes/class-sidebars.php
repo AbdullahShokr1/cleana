@@ -60,8 +60,30 @@ class Sidebars {
 
 		register_sidebar(
 			[
-				'name'          => esc_html__( 'Footer', 'cleana' ),
+				'name'          => esc_html__( 'Footer1', 'cleana' ),
 				'id'            => 'sidebar-2',
+				'description'   => '',
+				'before_widget' => '<section id="%1$s" class="widget widget-footer cell column %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h4 class="widget-title">',
+				'after_title'   => '</h4>',
+			]
+		);
+		register_sidebar(
+			[
+				'name'          => esc_html__( 'Footer2', 'cleana' ),
+				'id'            => 'sidebar-3',
+				'description'   => '',
+				'before_widget' => '<section id="%1$s" class="widget widget-footer cell column %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h4 class="widget-title">',
+				'after_title'   => '</h4>',
+			]
+		);
+		register_sidebar(
+			[
+				'name'          => esc_html__( 'Footer3', 'cleana' ),
+				'id'            => 'sidebar-4',
 				'description'   => '',
 				'before_widget' => '<section id="%1$s" class="widget widget-footer cell column %2$s">',
 				'after_widget'  => '</section>',

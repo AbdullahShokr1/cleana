@@ -26,7 +26,10 @@
 					'class' => 'featured-thumbnail-image',
 					'alt'=> wp_kses_post( get_the_title() )
 				]
-			)
+			);
+			if(! has_post_thumbnail() ){
+				echo "<img src='". esc_url( CLEANA_BUILD_IMG_URI . '/post.webp' )."' width='315' height='232' sizes='(max-width: 100%) 437px,(max-height: 232px) 232px 233px' loading='lazy' class='featured-thumbnail-image' alt='". wp_kses_post( get_the_title() )."'></img>";
+			}
 			?>
 			<section class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></section>
 		</a>

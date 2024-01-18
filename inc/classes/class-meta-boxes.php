@@ -43,7 +43,7 @@ class Meta_Boxes {
 	 * @return void
 	 */
 	public function add_custom_meta_box() {
-		$screens = [ 'post' ];
+		$screens = [ 'post',"page" ];
 		foreach ( $screens as $screen ) {
 			add_meta_box(
 				'hide-page-title',           // Unique ID

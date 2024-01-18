@@ -35,4 +35,5 @@
 		<?php cleana_the_excerpt( 200 ); ?>
 	</p>
 </section>
+<hr/>
 

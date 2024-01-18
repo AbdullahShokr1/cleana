@@ -7,6 +7,8 @@
 
  $the_post_id   = get_the_ID();
  $hide_title    = get_post_meta( $the_post_id, '_hide_page_title', true );
+ $call_icons_phone    = get_post_meta( $the_post_id, 'phone', true );
+ $call_icons_whatsapp    = get_post_meta( $the_post_id, 'whatsapp', true );
  $heading_class = ( ! empty( $hide_title ) && 'yes' === $hide_title ) ? 'hide d-none' : '';
  $has_post_thumbnail = get_the_post_thumbnail( $the_post_id );
  $the_post_id   = get_the_ID();
@@ -72,16 +74,37 @@ if ( is_single() || is_page() ) {
 <section class="content">
 	<?php the_content();?>
 </section>
-<?php comments_template() ?>
-<section class="pagination py-4">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<?php if(!empty(get_next_post())) { ?>
-			<li class="page-item"><?php next_post_link('%link', "<< التالي"); ?></li>
-			<?php } ?>
-			<?php if(!empty(get_previous_post())) { ?>
-			<li class="page-item"><?php previous_post_link('%link',"السابق >>");?></li>
-			<?php } ?>
-		</ul>
-	</nav>
-</section>
+<?php
+if($call_icons_phone || $call_icons_whatsapp){
+	if(!empty($call_icons_phone )&& !empty($call_icons_whatsapp)){
+		?>
+		<section class="contact-icons fixed	bottom-0 left-0">
+			<a href="tel:<?php echo $call_icons_phone; ?>" class="phone-icon" title="ايقونة الاتصال">
+				<img src="<?php echo esc_url( CLEANA_BUILD_IMG_URI . '/phone.png' )?>" width="48px" hight="48px" alt="رقم الهاتف للاتصال : <?php echo $call_icons_phone;?>">
+			</a>
+			<a href="https://wa.me/'<?php echo  $call_icons_whatsapp; ?>" class="whatsapp-icon" title="ايقونة الواتس">
+				<img src="<?php echo esc_url( CLEANA_BUILD_IMG_URI . '/whatsapp.svg' )?>" width="48px" hight="48px" alt="رقم الواتس للتواصل :<?php echo  $call_icons_whatsapp;?>">
+			</a>
+		</section>
+		<?php
+	}elseif(!empty($call_icons_phone)){
+		?>
+		<section class="contact-icons fixed	bottom-0 left-0">
+			<a href="tel:<?php echo $call_icons_phone; ?>" class="phone-icon" title="ايقونة الاتصال">
+				<img src="<?php echo esc_url( CLEANA_BUILD_IMG_URI . '/phone.png' )?>" width="48px" hight="48px" alt="رقم الهاتف للاتصال : <?php echo $call_icons_phone;?>">
+			</a>
+		</section>
+		<?php
+	}elseif(!empty($call_icons_whatsapp)  ){
+		?>
+		<section class="contact-icons fixed	bottom-0 left-0">
+			<a href="https://wa.me/'<?php echo  $call_icons_whatsapp; ?>" class="whatsapp-icon" title="ايقونة الواتس">
+				<img src="<?php echo esc_url( CLEANA_BUILD_IMG_URI . '/whatsapp.svg' )?>" width="48px" hight="48px" alt="رقم الواتس للتواصل :<?php echo  $call_icons_whatsapp;?>">
+			</a>
+		</section>
+		<?php
+	}
+}
+
+?>
+

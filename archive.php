@@ -22,7 +22,7 @@ get_header();
 				if($category_image[0] ) {
 					echo '<img  class="rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($category_image[0] ) . '" alt="' . single_cat_title('', false) . '">';
 				}else{
-					echo '<img  class=" rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt="' . single_cat_title('', false) . '">';
+					echo '<img  class="rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt="' . single_cat_title('', false) . '">';
 				}
 			}
 			if ( ! empty( single_term_title( '', false ) ) ) {

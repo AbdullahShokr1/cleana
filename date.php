@@ -52,44 +52,35 @@ $last_page_url   = sprintf(
 	esc_url( $the_date_permalink ),
 	esc_attr( $wp_query->max_num_pages )
 );
-
-
 ?>
-	<div id="primary">
-		<main id="main" class="site-main my-5" role="main">
-			<div class="container">
+<main id="main" class="site-main my-5 dark:bg-gray-800 bg-blue-50 text-black dark:text-white" role="main">
+	<section class="container">
+		<section class=" mx-auto p-5 rounded text-center text-gray-500 max-w-sm justify-center">
+			<?php
+			if ( ! empty( $the_date ) ) {
+				printf(
+					'<h1 class="font-bold text-2xl mb-2 dark:text-white text-black">%s</h1>',
+					$the_date
+				);
+			}
+			?>
+      	</section>
 
-				<header class="page-header">
-					<?php
-
-					if ( ! empty( $the_date ) ) {
-						printf(
-							'<h1 class="page-title h1 inline-block mb-4">%s</h1>',
-							$the_date
-						);
-					}
-					?>
-				</header><!-- .page-header -->
-				<div class="site-content">
-					<div class="row">
-						<?php
-						if ( $wp_query->have_posts() ) :
-							while ( $wp_query->have_posts() ) : $wp_query->the_post();
-								get_template_part( 'template-parts/content', '', [ 'container_classes' => 'col-lg-4 col-md-6 col-sm-12 pb-4' ] );
-							endwhile;
-						else :
-							get_template_part( 'template-parts/content-none' );
-						endif;
-						?>
-					</div>
-					<div>
-						<?php cleana_the_post_pagination( $current_page_no, CLEANA_ARCHIVE_POST_PER_PAGE, $wp_query, $first_page_url, $last_page_url, false ); ?>
-					</div>
-				</div>
-			</div>
-		</main>
-	</div>
-
+		<section class="flex flex-col p-5 lg:px-48 lg:py-11">
+		<?php
+		if ( $wp_query->have_posts() ) :
+			while ( $wp_query->have_posts() ) : $wp_query->the_post();
+				get_template_part( 'template-parts/content/content-noimage');
+			endwhile;
+		else :
+			get_template_part( 'template-parts/content/content-none' );
+		endif;
+		?>
+		</section>
+		<section class="dark:bg-gray-800 bg-blue-50 text-black dark:text-white">
+			<?php cleana_the_post_pagination( $current_page_no, CLEANA_ARCHIVE_POST_PER_PAGE, $wp_query, $first_page_url, $last_page_url, false ); ?>
+		</section>
+	</section>
+</main>
 <?php
-
 get_footer();

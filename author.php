@@ -33,7 +33,7 @@ $author = get_queried_object();
 								get_template_part( 'template-parts/author/posts');
 							endwhile;
 						else :
-							get_template_part( 'template-parts/content-none' );
+							get_template_part( 'template-parts/content/content-none' );
 						endif;
 						?>
 					</section>
