@@ -53,7 +53,7 @@ $last_page_url   = sprintf(
 	esc_attr( $wp_query->max_num_pages )
 );
 ?>
-<main id="main" class="site-main my-5 dark:bg-gray-800 bg-blue-50 text-black dark:text-white" role="main">
+<main id="main" class="site-main dark:bg-gray-800 bg-blue-50 text-black dark:text-white" role="main">
 	<section class="container">
 		<section class=" mx-auto p-5 rounded text-center text-gray-500 max-w-sm justify-center">
 			<?php

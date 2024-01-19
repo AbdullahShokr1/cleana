@@ -11,6 +11,7 @@
  $has_post_thumbnail = get_the_post_thumbnail( $the_post_id );
  $the_post_id   = get_the_ID();
  $article_terms = wp_get_post_terms( $the_post_id, [ 'category', 'post_tag' ] );
+ $home_settings = get_option('theme_options');
 ?>
 <!-- CARD -->
 <section class="rounded overflow-hidden shadow-lg flex flex-col ">
@@ -28,7 +29,7 @@
 				]
 			);
 			if(! has_post_thumbnail() ){
-				echo "<img src='". esc_url( CLEANA_BUILD_IMG_URI . '/post.webp' )."' width='315' height='232' sizes='(max-width: 100%) 437px,(max-height: 232px) 232px 233px' loading='lazy' class='featured-thumbnail-image' alt='". wp_kses_post( get_the_title() )."'></img>";
+				echo "<img src='".  $home_settings["section7_image"]."' width='315' height='232' sizes='(max-width: 100%) 437px,(max-height: 232px) 232px 233px' loading='lazy' class='featured-thumbnail-image' alt='". wp_kses_post( get_the_title() )."'></img>";
 			}
 			?>
 			<section class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></section>

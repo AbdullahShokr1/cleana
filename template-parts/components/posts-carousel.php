@@ -11,6 +11,7 @@ $args = [
 	'update_post_meta_cache' => false,
 	'update_post_term_cache' => false,
 ];
+$home_settings = get_option('theme_options');
 
 $post_query = new \WP_Query( $args );
 ?>
@@ -30,16 +31,14 @@ $post_query = new \WP_Query( $args );
 							get_the_ID(),
 							'null',
 							[
-								'width'=>"1520px",
-								"height"=> "350px",
-								'class' => 'absolute block w-full object-center bg-auto bg-no-repeat bg-center',
+								'class' => 'absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2',
 								'alt' => wp_kses_post( get_the_title()),
 							]
 						);
 						
 					} else {
 						?>
-						<img width="1024" height="1024" src="<?php echo esc_url( CLEANA_BUILD_IMG_URI) ?>/carousel.png" class="absolute block w-full bg-auto bg-no-repeat bg-center" alt="<?php echo wp_kses_post( get_the_title());?>" loading="lazy" decoding="async">
+						<img src="<?php echo $home_settings['section7_image'] ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="<?php echo wp_kses_post( get_the_title());?>" loading="lazy" decoding="async">
 						<?php
 					}
 					?>
