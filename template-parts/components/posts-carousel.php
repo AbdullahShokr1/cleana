@@ -6,7 +6,7 @@
  */
 
 $args = [
-	'posts_per_page'         => 5,
+	'posts_per_page'         => 4,
 	'post_type'              => 'post',
 	'update_post_meta_cache' => false,
 	'update_post_term_cache' => false,
@@ -22,31 +22,33 @@ $post_query = new \WP_Query( $args );
 			while ( $post_query->have_posts() ) :
 				$post_query->the_post();
 				?>
+				<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="btn btn-primary">
 				<section class="hidden duration-700 ease-in-out" data-carousel-item>
 					<?php
 					if ( has_post_thumbnail() ) {
 						the_post_custom_thumbnail(
 							get_the_ID(),
-							'large',
+							'null',
 							[
-								'class' => 'absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2',
+								'width'=>"1520px",
+								"height"=> "350px",
+								'class' => 'absolute block w-full object-center bg-auto bg-no-repeat bg-center',
+								'alt' => wp_kses_post( get_the_title()),
 							]
 						);
 						
 					} else {
 						?>
-						<img src="https://via.placeholder.com/510x340" alt="Card image cap">
+						<img width="1024" height="1024" src="<?php echo esc_url( CLEANA_BUILD_IMG_URI) ?>/carousel.png" class="absolute block w-full bg-auto bg-no-repeat bg-center" alt="<?php echo wp_kses_post( get_the_title());?>" loading="lazy" decoding="async">
 						<?php
 					}
 					?>
 					<div class="card-body">
 						<?php the_title( '<h3 class="card-title">', '</h3>' ); ?>
-						<?php cleana_the_excerpt(); ?>
-						<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="btn btn-primary">
-							<?php esc_html_e( 'View More', 'cleana' ); ?>
-						</a>
+						<?php cleana_the_excerpt(); ?>			
 					</div>
 				</section>
+				</a>
 			<?php
 			endwhile;
 		endif;
@@ -59,7 +61,6 @@ $post_query = new \WP_Query( $args );
 			<button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
 			<button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
 			<button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-			<button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
 		</div>
         <!-- Slider controls -->
         <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>

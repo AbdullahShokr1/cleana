@@ -82,7 +82,7 @@ if($call_icons_phone || $call_icons_whatsapp){
 			<a href="tel:<?php echo $call_icons_phone; ?>" class="phone-icon" title="ايقونة الاتصال">
 				<img src="<?php echo esc_url( CLEANA_BUILD_IMG_URI . '/phone.png' )?>" width="48px" hight="48px" alt="رقم الهاتف للاتصال : <?php echo $call_icons_phone;?>">
 			</a>
-			<a href="https://wa.me/'<?php echo  $call_icons_whatsapp; ?>" class="whatsapp-icon" title="ايقونة الواتس">
+			<a href="https://wa.me/<?php echo  $call_icons_whatsapp; ?>" class="whatsapp-icon" title="ايقونة الواتس">
 				<img src="<?php echo esc_url( CLEANA_BUILD_IMG_URI . '/whatsapp.svg' )?>" width="48px" hight="48px" alt="رقم الواتس للتواصل :<?php echo  $call_icons_whatsapp;?>">
 			</a>
 		</section>

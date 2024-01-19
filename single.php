@@ -38,8 +38,9 @@ get_header();
 				endif;
 			?>
 		</article>
+		<?php get_sidebar()?>
 	</section>
-	<?php get_sidebar()?>
+	
 	<section class=" mx-auto px-4 py-2 pb-4 flex justify-center flex-wrap dark:bg-slate-900 bg-blue-200">
 		<!-- Pagination -->
 		<section class="flex bg-gray-50 text-gray-700 border border-gray-200 py-3 px-5 rounded-lg dark:bg-gray-800 dark:border-gray-700">
