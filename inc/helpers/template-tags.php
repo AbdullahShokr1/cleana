@@ -63,12 +63,12 @@ function cleana_posted_on() {
 	$day                         = get_the_date( 'j' );
 	$post_date_archive_permalink = get_day_link( $year, $month, $day );
 
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	$time_string = '<time itemprop="datePublished" class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
 	// Post is modified ( when post published time is not equal to post modified time )
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><br/>
-		<time class="updated" datetime="%3$s">اخر تحديث في  %4$s</time>';
+		<time itemprop="dateModified" class="updated" datetime="%3$s">اخر تحديث في  %4$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,
@@ -94,7 +94,7 @@ function cleana_posted_on() {
 function cleana_posted_by() {
 	$byline = sprintf(
 		esc_html_x( ' منشور بواسطة %s', 'post author', 'cleana' ),
-		'<span class="author vcard"><a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		'<span itemprop="author" itemscope itemtype="https://schema.org/Person" class="author vcard"><a itemprop="url" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"><span itemprop="name">' . esc_html( get_the_author() ) . '</span></a></span>'
 	);
 
 	echo '<span class="byline text-secondary">' . $byline . '</span>';

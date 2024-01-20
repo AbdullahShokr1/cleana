@@ -27,7 +27,7 @@ foreach ( $article_terms as $key => $article_term ) {
 }
 ?>
 <section class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
-	<span href="#" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+	<span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
 	<svg height="13px" width="13px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 		<g>
 			<g>
@@ -38,7 +38,7 @@ foreach ( $article_terms as $key => $article_term ) {
 	</svg>
 	<span class="ml-1"><?php cleana_posted_on();?></span>
 	</span>
-	<span href="#" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+	<span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
 	<svg class="h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
 		</path>
@@ -53,13 +53,14 @@ the_post_custom_thumbnail(
 	[
 		'sizes' => '(max-width: 100%) 1200px,(max-height: 600px) 600px ',
 		'class' => 'w-full h-64 object-cover rounded',
+		"itemprop"=>"image",
 		'alt'=> wp_kses_post( get_the_title() )
 	]
 );
 // Title
 if ( is_single() || is_page() ) {
 	printf(
-		'<h1 class="page-title text-4xl font-bold mt-4 mb-2 %1$s">%2$s</h1>',
+		'<h1 class="page-title text-4xl font-bold mt-4 mb-2 %1$s" itemprop="headline">%2$s</h1>',
 		esc_attr( $heading_class ),
 		wp_kses_post( get_the_title() )
 	);

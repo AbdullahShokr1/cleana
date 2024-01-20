@@ -10,7 +10,7 @@ get_header();
 ?>
 <main class="container mx-auto pt-4 dark:bg-gray-800 bg-blue-50 text-black dark:text-white">
 	<section class="flex flex-wrap justify-between">
-		<article id="post" class="w-full md:w-8/12 px-4 mb-8">
+		<article id="post" class="w-full md:w-8/12 px-4 mb-8" itemscope itemtype="https://schema.org/NewsArticle">
 			<?php
 				if ( have_posts() ) :
 					?>
