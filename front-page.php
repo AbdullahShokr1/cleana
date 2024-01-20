@@ -49,7 +49,7 @@ $args3=[
 ?>
 <?php get_header();?>
 <!--Start Main Section-->
-<main>
+<main id="front">
 <?php
 get_template_part( 'template-parts/components/posts-carousel' );
 get_template_part( 'template-parts/components/cateories' );
@@ -61,7 +61,7 @@ if ( have_posts() ) :
 	?>
 	<section class=" mx-auto p-5 sm:p-10 md:p-16 bg-blue-50 dark:bg-slate-800">
 		<?php
-		if ( is_home() && ! is_front_page() ) {
+		if ( is_home() || is_front_page() ) {
 		?>
 		<section class="mx-auto max-w-lg text-center py-2">
 			<h1 class="page-title text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
@@ -98,7 +98,7 @@ if ( have_posts() ) :
 	?>
 	<section class=" mx-auto p-5 sm:p-10 md:p-16 bg-blue-200 dark:bg-gray-900">
 		<?php
-		if ( is_home() && ! is_front_page() ) {
+		if ( is_home() || is_front_page() ) {
 		?>
 		<section class="mx-auto max-w-lg text-center py-2">
 			<h2 class="page-title text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">

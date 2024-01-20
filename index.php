@@ -5,9 +5,9 @@
 * @package Cleana
 */
 // Exclude category with ID 12 (replace with your category ID)
-$category_id = get_cat_ID(CLEANA_NO_CATEGORY);
+$category_id = get_category_by_slug( CLEANA_NO_CATEGORY );
 $query = new WP_Query( array( 'category__not_in' => array( $category_id ) ) );
-$blog_id = get_cat_ID(CLEANA_BOLG_ID);
+$blog_id = get_category_by_slug(CLEANA_BOLG_ID);
 $blog = new WP_Query( array( 'category__in' => array( $blog_id ) ) );
 $hero_section1 = get_option('theme_options');
 $args=[
@@ -49,7 +49,7 @@ $args3=[
 ?>
 <?php get_header();?>
 <!--Start Main Section-->
-<main>
+<main id="index">
 <?php
 get_template_part( 'template-parts/components/posts-carousel' );
 get_template_part( 'template-parts/components/cateories' );
@@ -61,7 +61,7 @@ if ( have_posts() ) :
 	?>
 	<section class=" mx-auto p-5 sm:p-10 md:p-16 bg-blue-50 dark:bg-slate-800">
 		<?php
-		if ( is_home() && ! is_front_page() ) {
+		if ( is_home() || is_front_page() ) {
 		?>
 		<section class="mx-auto max-w-lg text-center py-2">
 			<h1 class="page-title text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
@@ -98,7 +98,7 @@ if ( have_posts() ) :
 	?>
 	<section class=" mx-auto p-5 sm:p-10 md:p-16 bg-blue-200 dark:bg-gray-900">
 		<?php
-		if ( is_home() && ! is_front_page() ) {
+		if ( is_home() || is_front_page() ) {
 		?>
 		<section class="mx-auto max-w-lg text-center py-2">
 			<h2 class="page-title text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
