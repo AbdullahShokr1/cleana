@@ -6,8 +6,7 @@
  *
  * @package Cleana
  */
-$categories = get_categories(array('orderby' => 'name','order' => 'ASC','hide_empty' => false,));
-
+$categories = get_categories(array('orderby' => 'name','order' => 'ASC','hide_empty' => false));
 ?>
 <!--Start Category Section-->
 <section class="p-5 sm:p-10 md:p-16 bg-blue-200  dark:bg-gray-900">
@@ -19,7 +18,8 @@ $categories = get_categories(array('orderby' => 'name','order' => 'ASC','hide_em
             foreach( $categories as $category ) {
                 $category_term_id = $category->term_id; // Replace with your actual term ID.
                 $category_term_meta = get_term_meta($category_term_id);
-                if($category->name != "Uncategorized"){
+                
+                if($category->name != "Uncategorized" && $category->slug != "blog"){
                 ?>
                 <section class="flex flex-col bg-blue-200 dark:bg-gray-900">
                     <a class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2" href="<?php echo get_category_link( $category->term_id ) ?>">
