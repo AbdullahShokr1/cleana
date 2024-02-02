@@ -5,7 +5,7 @@
  * @package Cleana
  */
 ?>
-<footer class="bg-blue-50 dark:bg-gray-800  border-gray-200 dark:text-white">
+<footer class="bg-white dark:bg-gray-800  border-gray-200 dark:text-white">
     <section class="container p-6 mx-auto">
         <section class="lg:flex">
             <section class="w-full -mx-6 lg:w-2/5">
@@ -38,7 +38,7 @@
         <hr class="h-px my-6 bg-black border-none dark:bg-gray-700">
 
         <section>
-            <p class="text-center text-gray-500 dark:text-gray-400">© Abdullah Shokr 2024 - كل الحقوق محفوظة</p>
+            <p class="text-center text-gray-300 dark:text-gray-400">© Abdullah Shokr 2024 - كل الحقوق محفوظة</p>
         </section>
     </section>
 </footer>
