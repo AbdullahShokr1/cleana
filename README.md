@@ -1,7 +1,7 @@
 # [WordPress Theme - Cleana](@) 🎨
 [![Project Status: Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-* A Cleana Theme
+* [منصة منزلك للخدمات المنزلية](https://www.manzilak.live/)
 
 <a href="#" target="_blank">
 <img src="https://codeytek.com/wp-content/uploads/2020/07/banner.png" alt="WordPress theme development banner" />
