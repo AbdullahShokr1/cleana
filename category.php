@@ -53,7 +53,20 @@ get_header();
 		<?php
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post();
-				get_template_part( 'template-parts/content/content-noimage');
+				if(!is_category('blog')){
+					get_template_part( 'template-parts/content/content-noimage');
+				}else{
+					?>
+					<section class="bg-blue-50 dark:bg-slate-800">
+						<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+						<?php
+						get_template_part( 'template-parts/content/content-blog' );
+						wp_reset_postdata();
+						?>
+						</section>
+					</section>
+					<?php
+				}
 			endwhile;
 		else :
 			get_template_part( 'template-parts/content/content-none' );

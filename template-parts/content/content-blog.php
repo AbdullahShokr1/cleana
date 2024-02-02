@@ -15,7 +15,6 @@
 ?>
 <!-- CARD -->
 <section class="rounded overflow-hidden shadow-lg flex flex-col ">
-	<a href="<?php echo esc_url( get_permalink() ); ?>"></a>
 	<section class="relative">
 		<a href="<?php echo esc_url( get_permalink() ); ?>">
 			<?php

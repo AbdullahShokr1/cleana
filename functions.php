@@ -21,10 +21,10 @@ if ( ! defined( 'CLEANA_SEARCH_RESULTS_POST_PER_PAGE' ) ) {
 	define( 'CLEANA_SEARCH_RESULTS_POST_PER_PAGE', 9 );
 }
 if ( ! defined( 'CLEANA_NO_CATEGORY' ) ) {
-	define( 'CLEANA_NO_CATEGORY', untrailingslashit( "blog" ) );
+	define( 'CLEANA_NO_CATEGORY', untrailingslashit( "المدونة" ) );
 }
 if ( ! defined( 'CLEANA_BOLG_ID' ) ) {
-	define( 'CLEANA_BOLG_ID', untrailingslashit( "blog" ) );
+	define( 'CLEANA_BOLG_ID', untrailingslashit( "المدونة" ) );
 }
 
 require_once CLEANA_DIR_PATH . '/inc/helpers/autoloader.php';
