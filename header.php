@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"content="<?php bloginfo('description') ?>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#bcd9fe"/>
     <meta name="language" content="ar">
     <script type="application/ld+json">
     {
@@ -38,6 +39,7 @@
     }
     </script>
     <?php wp_head();?>
+    <link rel="manifest" href="manifest.json" />
 </head>
 <body dir="rtl" <?php body_class();?>>
     <?php wp_body_open()?>

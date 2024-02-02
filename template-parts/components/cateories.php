@@ -27,9 +27,9 @@ $categories = get_categories(array('orderby' => 'name','order' => 'ASC','hide_em
                             <?php
                             foreach( $category_term_meta as $category_image ){
                                 if($category_image[0] ) {
-                                    echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($category_image[0] ) . '" alt="' . $category->name . '">';
+                                    echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($category_image[0] ) . '" alt=" تصنيف ' . $category->name . '">';
                                 }else{
-                                    echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt="' . $category->name . '">';
+                                    echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt=" تصنيف ' . $category->name . '">';
                                 }
                             }
                             ?>

@@ -15,7 +15,7 @@ $header_menus   = wp_get_nav_menu_items( $header_menu_id );
                 $custom_logo_id = get_theme_mod( 'custom_logo' );
                 $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
                 if ( has_custom_logo() ) {
-                    echo '<img  width="32" height="33" src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . ' " class="custom-logo" decoding="async">';
+                    echo '<img  width="32" height="33" src="' . esc_url( $logo[0] ) . '" class="custom-logo" alt=" لوجو ' . get_bloginfo( 'name' ) . ' "> ';
                 }
             ?>
             <section id="logo-txt">

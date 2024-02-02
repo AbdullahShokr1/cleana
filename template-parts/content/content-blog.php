@@ -56,7 +56,7 @@
 			);
 		} else {
 			printf(
-				'<h3 class="entry-title post-card-title mb-3"><a class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2" href="%1$s">%2$s</a></h3>',
+				'<h2 class="entry-title post-card-title mb-3"><a class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2" href="%1$s">%2$s</a></h2>',
 				esc_url( get_the_permalink() ),
 				wp_kses_post( get_the_title() )
 			);

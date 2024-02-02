@@ -33,7 +33,7 @@ class Assets {
 	**wp_enqueue_style()
 	*/
 	public function register_styles(){
-		wp_enqueue_style("cleana-style",CLEANA_DIR_URL.'/assets/src/css/main.css');
+		wp_enqueue_style("cleana-style",CLEANA_DIR_URL.'/assets/src/css/main.min.css');
 	}
 
 
@@ -47,7 +47,7 @@ class Assets {
 		wp_deregister_script( "jquery" );//Remove jquery
 		//wp_register_script( "jquery", includes_url( "/js/jquery/jquery.min.js"),false,'',true );//Register js
 		//wp_enqueue_script("jquery");
-		wp_enqueue_script("main-js",CLEANA_DIR_URL.'/assets/src/js/main.js',array(),false,true);
+		wp_enqueue_script("main-js",CLEANA_DIR_URL.'/assets/src/js/main.min.js',array(),false,true);
 		wp_enqueue_script("flowbite-js",CLEANA_DIR_URL.'/assets/src/js/flowbite.min.js',array(),false,true);
 	}
 
