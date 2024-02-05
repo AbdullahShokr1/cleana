@@ -51,26 +51,32 @@ get_header();
 	?>
 	<section class="flex flex-col p-5 lg:px-48 lg:py-11">
 		<?php
-		if ( have_posts() ) :
-			while ( have_posts() ) : the_post();
-				if(!is_category(CLEANA_NO_CATEGORY)){
-					get_template_part( 'template-parts/content/content-noimage');
-				}else{
-					?>
-					<section class="bg-blue-50 dark:bg-slate-800">
-						<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-						<?php
-						get_template_part( 'template-parts/content/content-blog' );
-						wp_reset_postdata();
-						?>
-						</section>
-					</section>
-					<?php
-				}
-			endwhile;
-		else :
-			get_template_part( 'template-parts/content/content-none' );
-		endif;
+		if(!is_category(CLEANA_NO_CATEGORY)){
+			if ( have_posts() ) :
+				while ( have_posts() ) : the_post();
+						get_template_part( 'template-parts/content/content-noimage');
+				endwhile;
+			else :
+				get_template_part( 'template-parts/content/content-none' );
+			endif;
+		}else{
+			?>
+			<section class="bg-blue-50 dark:bg-slate-800">
+				<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+			<?php
+			if ( have_posts() ) :
+				while ( have_posts() ) : the_post();
+					get_template_part( 'template-parts/content/content-blog' );
+					wp_reset_postdata();
+				endwhile;
+			else :
+				get_template_part( 'template-parts/content/content-none' );
+			endif;
+			?>
+				</section>
+			</section>
+			<?php
+		}
 		?>
 	</section>
 </main>

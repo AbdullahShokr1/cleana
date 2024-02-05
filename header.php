@@ -18,10 +18,10 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "image": "http://manzilak.live/wp-content/uploads/2024/01/Manzilak.png",
-      "url": "https://manzilak.live/",
-      "sameAs": ["https://manzilak.live/author/abdullahshokr/"],
-      "logo": "http://manzilak.live/wp-content/uploads/2024/01/Manzilak.png",
+      "image": "https://www.manzilak.live/wp-content/uploads/2024/02/Manzilak.png",
+      "url": "https://www.manzilak.live/",
+      "sameAs": ["https://www.manzilak.live/author/abdullahshokr/"],
+      "logo": "https://www.manzilak.live/wp-content/uploads/2024/02/Manzilak.png",
       "name": "منصة منزلك",
       "description": "منصة منزلك للخدمات المنزلية تخدم جميع الخدمات المنزلية في المملكة العربية السعودية مثل خدمات نقل العفش وتنظيف المنازل و مكافحة الحشرات وتسليك المجاري وتنظيف الخزانات وتنظيف السجاد والكنب و الموكيت بالبخار",
       "email": "contact@manzilak.live/",
@@ -39,7 +39,7 @@
     }
     </script>
     <?php wp_head();?>
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="https://www.manzilak.live/manifest.json" />
 </head>
 <body dir="rtl" <?php body_class();?>>
     <?php wp_body_open()?>
