@@ -393,3 +393,63 @@ function section7_image_callback() {
         });
     </script>';
 }
+function insert_contents_table($content) {
+
+    // Only add contents table in single posts
+    if (!is_single()) {
+      return $content;
+    }
+  
+    // Match all headings 
+    preg_match_all('/<h([2-3])(.*?)>(.*?)<\/h[2-3]>/i', $content, $headings);
+  
+    if (!empty($headings)) {
+  
+      $table_of_contents = '<section class="w-full bg-gray-100 px-4 py-3 text-left text-gray-800 break-words max-w-md rounded contents-table table-auto border"><section class="mx-auto text-xl font-semibold" id="toggle-table"><strong>محتوي المقالة</strong></section><ul id="my-table" class="mt-2 list-disc px-2 pl-6" style="display: none;">';
+      
+      // Loop through each heading
+      foreach ($headings[3] as $key => $heading) {
+  
+        $id = sanitize_title($heading);
+  
+        $table_of_contents .= '<li>
+                                <a class="block hover:bg-gray-200 px-2 py-1 rounded" href="#' . $id . '">' . $heading . '</a>
+                              </li>';
+  
+        // Add ID attribute to headings
+        $replacement = '<h' . $headings[1][$key] . ' id="' . $id . '">' . $heading . '</h' . $headings[1][$key] . '>';
+        $content = str_replace($headings[0][$key], $replacement, $content);
+  
+      }
+  
+      $table_of_contents .= '</ul></section>';
+  
+      // Insert contents table before content
+      $content = $table_of_contents . $content;
+  
+    }
+  
+    return $content;
+  
+  }
+  add_filter('the_content', 'insert_contents_table');
+  function custom_content_classes($content) {
+    // Add class to <a> tags
+    $content = preg_replace_callback('/<a[^>]*>/', function($match) {
+        return str_replace('<a', '<a class="hover:text-indigo-600 transition duration-500 ease-in-out"', $match[0]);
+    }, $content);
+    // Add class to <h1> through <h6> tags
+    $content = preg_replace('/<(h2)([^>]*)>/', '<h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500"$2>', $content);
+    $content = preg_replace('/<(h3)([^>]*)>/', '<h3 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-sky-400 to-cyan-500"$2>', $content);
+    $content = preg_replace('/<(h4)([^>]*)>/', '<h4 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-sky-400 to-cyan-500"$2>', $content);
+    $content = preg_replace('/<(h5)([^>]*)>/', '<h5 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-sky-400 to-cyan-500"$2>', $content);
+    $content = preg_replace('/<(h6)([^>]*)>/', '<h6 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-sky-400 to-cyan-500"$2>', $content);
+    //$content = preg_replace('/<(h[1-6])([^>]*)>/', '<$1 class="custom-heading-class"$2>', $content);
+    // Add class to <p> tags
+    $content = preg_replace_callback('/<p[^>]*>/', function($match) {
+        return str_replace('<p', '<p class="custom-paragraph-class"', $match[0]);
+    }, $content);
+
+    return $content;
+}
+add_filter('the_content', 'custom_content_classes');

@@ -24,6 +24,7 @@ class Assets {
 		 */
 		add_action( "wp_enqueue_scripts", [$this,"register_styles"]);
 		add_action( "wp_enqueue_scripts", [$this,"register_scripts"]);
+		add_action('wp_enqueue_scripts', [$this,'remove_block_library_style'], 100);
 
 	}
 
@@ -49,6 +50,9 @@ class Assets {
 		//wp_enqueue_script("jquery");
 		wp_enqueue_script("main-js",CLEANA_DIR_URL.'/assets/src/js/main.min.js',array(),false,true);
 		wp_enqueue_script("flowbite-js",CLEANA_DIR_URL.'/assets/src/js/flowbite.min.js',array(),false,true);
+	}
+	function remove_block_library_style() {
+		wp_dequeue_style('wp-block-library'); // Dequeue block-library/style.min.css
 	}
 
 }
