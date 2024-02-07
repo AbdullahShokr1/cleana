@@ -51,7 +51,7 @@ $args3=[
 <!--Start Main Section-->
 <main id="index">
 <?php
-get_template_part( 'template-parts/components/posts-carousel' );
+//get_template_part( 'template-parts/components/posts-carousel' );
 get_template_part( 'template-parts/components/cateories' );
 if ( have_posts() ) :
 	?>
