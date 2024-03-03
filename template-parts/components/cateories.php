@@ -17,6 +17,8 @@ $categories = get_categories(array('orderby' => 'name','order' => 'ASC','hide_em
         <?php 
             foreach( $categories as $category ) {
                 $category_term_id = $category->term_id; // Replace with your actual term ID.
+                $meta_key = 'category_image_id';
+                $meta_value = get_term_meta($category_term_id, $meta_key, true);
                 $category_term_meta = get_term_meta($category_term_id);
                 
                 if($category->name != "Uncategorized" && $category->slug != "blog"){
@@ -26,8 +28,8 @@ $categories = get_categories(array('orderby' => 'name','order' => 'ASC','hide_em
                         <section class="category-container relative flex flex-col items-center justify-center">
                             <?php
                             foreach( $category_term_meta as $category_image ){
-                                if($category_image[0] ) {
-                                    echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($category_image[0] ) . '" alt=" تصنيف ' . $category->name . '">';
+                                if($meta_value) {
+                                    echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($meta_value ) . '" alt=" تصنيف ' . $category->name . '">';
                                 }else{
                                     echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt=" تصنيف ' . $category->name . '">';
                                 }
