@@ -27,12 +27,10 @@ $categories = get_categories(array('orderby' => 'name','order' => 'ASC','hide_em
                     <a class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2" href="<?php echo get_category_link( $category->term_id ) ?>">
                         <section class="category-container relative flex flex-col items-center justify-center">
                             <?php
-                            foreach( $category_term_meta as $category_image ){
-                                if($meta_value) {
-                                    echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($meta_value ) . '" alt=" تصنيف ' . $category->name . '">';
-                                }else{
-                                    echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt=" تصنيف ' . $category->name . '">';
-                                }
+                            if($meta_value) {
+                                echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($meta_value ) . '" alt=" تصنيف ' . $category->name . '">';
+                            }else{
+                                echo '<img  class="category-image rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt=" تصنيف ' . $category->name . '">';
                             }
                             ?>
                             <h2 class="mt-2 text-center text-gray-800 font-bold category-title dark:text-white dark:hover:text-blue-500"><?php echo $category->name ?></h2>

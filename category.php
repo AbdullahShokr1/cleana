@@ -17,13 +17,14 @@ get_header();
 				the_archive_description( '<p class="mt-2 text-sm text-gray-900">', '</p>' );
 			}
 			$category = get_queried_object();
-			$category_term_meta = get_term_meta($category->term_id);
-			foreach( $category_term_meta as $category_image ){
-				if($category_image[0] ) {
-					echo '<img  class="rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($category_image[0] ) . '" alt="' . single_cat_title('', false) . '">';
-				}else{
-					echo '<img  class=" rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt="' . single_cat_title('', false) . '">';
-				}
+			//$category_term_meta = get_term_meta($category->term_id);
+
+			$meta_key = 'category_image_id';
+			$meta_value = get_term_meta($category->term_id, $meta_key, true);
+			if($meta_value ) {
+				echo '<img  class="rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url($meta_value ) . '" alt="' . single_cat_title('', false) . '">';
+			}else{
+				echo '<img  class=" rounded-full shadow-md transition duration-300 transform hover:scale-110" src="' . esc_url(CLEANA_DIR_URL.'/assets/src/images/category.jpg') . '" alt="' . single_cat_title('', false) . '">';
 			}
 			if ( ! empty( single_term_title( '', false ) ) ) {
 				printf(
