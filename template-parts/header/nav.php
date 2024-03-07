@@ -56,6 +56,7 @@ $header_menus   = wp_get_nav_menu_items( $header_menu_id );
                         $has_sub_menu_class = ! empty( $has_children ) ? 'has-submenu' : '';
                         $link_target        = ! empty( $menu_item->target ) && '_blank' === $menu_item->target ? '_blank' : '_self';
                         // Note_: Similar to $menu_item->target, there are other keys available in the $menu_item, such as classes. You can more key values if you need.
+                       
                         if ( ! $has_children ) {
                             ?>
                             <li>
@@ -69,15 +70,13 @@ $header_menus   = wp_get_nav_menu_items( $header_menu_id );
                         } else {
                             ?>
                             <li>
-                                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                                <button id=<?php echo("dropdownNavbarLink".$menu_item->object_id)?> data-dropdown-toggle=<?php echo("dropdownNavbar".$menu_item->object_id)?> class="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
                                     <?php echo esc_html( $menu_item->title ); ?> 
-                                    <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                                    </svg>
+                                    
                                 </button>
                                 <!-- Dropdown menu -->
-                                <section id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
+                                <section id=<?php echo("dropdownNavbar".$menu_item->object_id)?> class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby=<?php echo("dropdownNavbarLink".$menu_item->object_id)?>>
                                     <?php
                                     foreach ( $sub_menus as $child_menu_item ) {
                                         $has_children_children     = ! empty( $child_menu_item->children ) && is_array( $child_menu_item->children );
@@ -95,14 +94,12 @@ $header_menus   = wp_get_nav_menu_items( $header_menu_id );
                                             <?php
                                         }else{
                                             ?>
-                                            <li aria-aria-labelledby="dropdownNavbarLink" >
-                                                <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="left-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                    <?php echo esc_html( $child_menu_item->title ); ?>                                                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                                                    </svg>
+                                            <li aria-aria-labelledby=<?php echo("dropdownNavbarLink".$menu_item->object_id)?> >
+                                                <button id=<?php echo("doubleDropdownButton".$menu_item->object_id)?> data-dropdown-toggle=<?php echo("doubleDropdown".$menu_item->object_id)?> data-dropdown-placement="left-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                    <?php echo esc_html( $child_menu_item->title ); ?>
                                                 </button>
-                                                <section id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+                                                <section id=<?php echo("doubleDropdown".$menu_item->object_id)?> class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby=<?php echo("doubleDropdownButton".$menu_item->object_id)?>>
                                                         <?php
                                                         foreach ( $child_menu_item->children as $child_menu_item_child ) {  
                                                         ?>
