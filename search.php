@@ -95,6 +95,10 @@ global $wp_query;
 				}?>
 
 			</section>
+            <section class=" mx-auto px-4 py-2 pb-4 flex justify-center flex-wrap dark:bg-slate-900 bg-blue-200">
+                <!-- Pagination -->
+                <?php the_posts_pagination();?>
+            </section>
 		</main>
 	</div>
 <?php get_footer(); ?>

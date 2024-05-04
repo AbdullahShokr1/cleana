@@ -81,6 +81,10 @@ $last_page_url   = sprintf(
 			<?php cleana_the_post_pagination( $current_page_no, CLEANA_ARCHIVE_POST_PER_PAGE, $wp_query, $first_page_url, $last_page_url, false ); ?>
 		</section>
 	</section>
+	<section class=" mx-auto px-4 py-2 pb-4 flex justify-center flex-wrap dark:bg-slate-900 bg-blue-200">
+		<!-- Pagination -->
+		<?php the_posts_pagination();?>
+	</section>
 </main>
 <?php
 get_footer();
